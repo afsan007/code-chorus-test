@@ -2,7 +2,16 @@ import { ThemeOptions } from '@mui/material';
 
 export const theme: ThemeOptions = {
   typography: {
-    fontFamily: 'Source Sans Pro',
+    fontFamily: 'Montserrat',
+  },
+  breakpoints: {
+    values: {
+      xl: 2000,
+      lg: 1920,
+      md: 1440,
+      sm: 414,
+      xs: 0,
+    },
   },
   palette: {
     primary: {

@@ -1,4 +1,3 @@
-import { useLocaleData } from 'storybook-addon-locale';
 import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 11.1
 import { Background } from './Background';
 import { ThemeProvider } from '$application/theme/ThemeProvider';
@@ -6,11 +5,9 @@ import { ThemeProvider } from '$application/theme/ThemeProvider';
 export const decorators = [
   (Story: any, context: any) => {
     const { background } = context.parameters;
-    const localeData = useLocaleData(context)!;
-    const direction = localeData.dir!;
 
     return (
-      <ThemeProvider direction={direction}>
+      <ThemeProvider>
         <Background noPadding={background?.noPadding}>
           <Story />
         </Background>
