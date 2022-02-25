@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 // import BackgroundSVG from '$application/assets/icons/background.svg';
 import Header from './Layout/Header';
 
@@ -27,11 +27,11 @@ const Wrapper = styled.div`
   height: 100%;
   width: 1440px;
   margin: 0 auto;
-  ${({ theme }) =>
-    theme.breakpoints.down('sm') &&
-    css`
-      width: 100%;
-    `}
+  ${({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+  })}
 `;
 
 export default Layout;
