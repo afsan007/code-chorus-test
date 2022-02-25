@@ -1,0 +1,71 @@
+{
+  "Story Book": {
+    "prefix": "story",
+    "body": [
+      "import React from 'react';",
+      "import { StoryFC } from '$$application/components/StoryFC';",
+      "import { ${TM_FILENAME/[.].*/$1/}, ${TM_FILENAME/[.].*/$1/}Props } from './${TM_FILENAME/[.].*/$1/}';",
+      "",
+      "export default {",
+      "\ttitle: 'Atoms /',",
+      "\tcomponent: ${TM_FILENAME/[.].*/$1/},",
+      "};",
+      "",
+      "export const ${TM_FILENAME/[.].*/$1/}Cmp:StoryFC<${TM_FILENAME/[.].*/$1/}Props> = (args) => {",
+      "\treturn <${TM_FILENAME/[.].*/$1/} {...args} />;",
+      "};",
+      "",
+      "${TM_FILENAME/[.].*/$1/}Cmp.args = {}",
+      "",
+      "${TM_FILENAME/[.].*/$1/}Cmp.parameters = {",
+      "\tzeplinLink: '',",
+      "};",
+      "\n",
+      ""
+    ],
+    "description": "Story Book"
+  },
+  "TypeScript React Function Component": {
+    "prefix": "rcomp",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export interface ${TM_FILENAME/[.].*/$1/}Props {",
+      "\t$1",
+      "}",
+      "",
+      "const ${TM_FILENAME/[.].*/$1/} = (props:${TM_FILENAME/[.].*/$1/}Props) => {",
+      "\treturn ${2:<div>$3</div>}",
+      "};",
+      "",
+      "export default ${TM_FILENAME/[.].*/$1/};"
+    ],
+    "description": "React Function Component in TypeScript"
+  },
+  "NextPage": {
+    "prefix": "nextp",
+    "body": [
+      "import React from 'react';",
+      "import { NextPage, GetStaticProps } from 'next';",
+      "",
+      "const ${1:${TM_FILENAME_BASE}}: NextPage = () => {",
+      "  return ${2:<div>${3:${TM_FILENAME/[.].*/$1/}}</div>};",
+      "};",
+      "",
+      "export const getStaticProps: GetStaticProps = async () => {",
+      "  return {",
+      "    props: {}, // will be passed to the page component as props",
+      "  };",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ],
+    "description": "next page"
+  },
+  "Log to console": {
+    "prefix": "lg",
+    "body": ["console.log(` ==> $1 ==> `, $1)"],
+    "description": "Log output to the console"
+  }
+}

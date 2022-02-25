@@ -1,0 +1,107 @@
+{
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.tabCompletion": "on",
+  "editor.wordWrapColumn": 90,
+  "editor.rulers": [
+    90
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "files.exclude": {
+    "packages-cache": true,
+    "**/node_modules": true,
+    "**/.idea": true,
+    "**/.next": false
+  },
+  "typescript.preferences.quoteStyle": "single",
+  "files.associations": {
+    "Dockerfile-prod": "dockerfile",
+    "Dockerfile-dev": "dockerfile",
+    ".dockerignore": "ignore",
+    ".postcssrc": "json",
+    "tsconfig.*.json": "jsonc"
+  },
+  "vsicons.associations.files": [
+    {
+      "icon": "docker2",
+      "filename": true,
+      "extensionsGlob": [
+        "yml"
+      ],
+      "filenamesGlob": [
+        "docker-compose",
+        "docker-compose.override",
+        "docker-compose.local",
+        "docker-compose.base",
+        "docker-compose.nightly",
+        "docker-compose.qa",
+        "docker-compose.insiders",
+        "docker-compose.production",
+        "docker-compose.seed"
+      ]
+    },
+    {
+      "icon": "tsconfig",
+      "filename": true,
+      "extensionsGlob": [
+        "json"
+      ],
+    },
+  ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.cache": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/storybook-build": true,
+    "**/.next": true,
+     "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "emmet.excludeLanguages": [
+    "markdown",
+    "typescriptreact"
+  ],
+  // disable default vscode formatters and use prettier instead
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    // remains like this until all https://github.com/stylelint/stylelint/issues/4574 errors are fixed
+    "source.fixAll.stylelint": false
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  },
+  "git.ignoreLimitWarning": true,
+  "cSpell.words": [
+    "svgr",
+    "typecheck"
+  ]
+}

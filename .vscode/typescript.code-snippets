@@ -1,0 +1,41 @@
+{
+  "Rest Handler": {
+    "prefix": "restHandler",
+    "body": [
+      "import { ApiHandler } from '\\$api/APIHandler';",
+      "import { withMiddleware } from '\\$api/withMiddleware';",
+      "",
+      "interface Query {",
+      "\t[key: string]: string | string[];",
+      "}",
+      "",
+      "interface Body {",
+      "\ttestProp: boolean;",
+      "}",
+      "",
+      "const ${TM_FILENAME/\\[?(.)(.*?)\\]?[.].*/$1$2/}: ApiHandler<Body, string, Query> = async (req, res) => {",
+      "  return `hello world`;",
+      "};",
+      "",
+      "export default withMiddleware(${TM_FILENAME/\\[?(.)(.*?)\\]?[.].*/$1$2/})({",
+      "  operationId: '$1',",
+      "  description: '${2:Sample API}',",
+      "  method: 'POST',",
+      "  query: {",
+      "    type: 'object',",
+      "  },",
+      "  body: {",
+      "    type: 'object',",
+      "    properties: {",
+      "      testProp: { type: 'boolean' },",
+      "    },",
+      "  },",
+      "  response: {",
+      "    type: 'string',",
+      "  },",
+      "});",
+      ""
+    ],
+    "description": "API handler"
+  }
+}

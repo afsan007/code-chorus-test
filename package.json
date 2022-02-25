@@ -1,0 +1,111 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-path=.gitignore",
+    "storybook": "start-storybook -p 6006 --no-open",
+    "build-storybook": "build-storybook -o .buildStorybook",
+    "chromatic": "npx chromatic --project-token=e8cf1da5436d"
+  },
+  "lint-staged": {
+    "**/*.(t|j)s?(x)": [
+      "eslint  --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^4.5.2",
+    "@fontsource/ramabhadra": "^4.5.0",
+    "@fontsource/source-sans-pro": "^4.5.1",
+    "@mui/icons-material": "^5.2.1",
+    "@mui/material": "^5.2.3",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
+    "@mui/styled-engine-sc": "^5.1.0",
+    "@mui/system": "^5.2.3",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.3",
+    "styled-normalize": "^8.0.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-private-methods": "^7.16.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/runtime": "^7.16.3",
+    "@babel/runtime-corejs3": "^7.16.3",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@mdx-js/react": "^1.6.22",
+    "@next/eslint-plugin-next": "^12.0.4",
+    "@storybook/addon-a11y": "^6.4.7",
+    "@storybook/addon-actions": "^6.4.7",
+    "@storybook/addon-docs": "^6.4.7",
+    "@storybook/addon-essentials": "^6.4.7",
+    "@storybook/addon-links": "^6.4.7",
+    "@storybook/react": "^6.4.7",
+    "@svgr/webpack": "^6.1.1",
+    "@types/node": "16.11.11",
+    "@types/react": "17.0.37",
+    "@types/styled-components": "^5.1.17",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-import": "^1.13.3",
+    "babel-plugin-styled-components": "^2.0.2",
+    "chromatic": "^6.2.0",
+    "commitlint": "^15.0.0",
+    "eslint": "^8.3.0",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsdoc": "^37.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-storybook": "^0.5.3",
+    "eslint-plugin-unicorn": "^39.0.0",
+    "fork-ts-checker-webpack-plugin": "7.2.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-plugin-svgr": "^1.1.1",
+    "next-transpile-modules": "^9.0.0",
+    "prettier": "^2.5.0",
+    "react-docgen-typescript": "^2.2.1",
+    "react-is": "^17.0.2",
+    "storybook-addon-locale": "^0.3.6",
+    "storybook-addon-next-router": "^3.1.0",
+    "stylis": "^4.0.10",
+    "stylis-plugin-rtl": "^2.1.1",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "4.5.2"
+  },
+  "resolutions": {
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "@mui/material": "5.1.1",
+    "styled-components": "5.3.3",
+    "@mui/core": "5.0.0-alpha.54",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+  },
+  "engines": {
+    "node": ">=14.16.1"
+  },
+  "packageManager": "yarn@3.1.1",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

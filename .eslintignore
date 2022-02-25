@@ -1,0 +1,11 @@
+!.eslintrc.js
+
+.pnp.js
+
+src/**/*.{jpg,png,svg,ttf}
+
+build/*
+lib/*
+storybook-build/*
+
+dist
