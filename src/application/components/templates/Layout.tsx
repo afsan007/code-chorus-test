@@ -18,7 +18,7 @@ const Wrapper = styled.div`
       content: '';
       position: absolute;
       width: 100%;
-      height: 361px;
+      height: 720px;
       background-image: url('/mobileBackground.svg');
       background-repeat: no-repeat;
     }
