@@ -1,6 +1,5 @@
 !.eslintrc.js
 
-.pnp.js
 
 src/**/*.{jpg,png,svg,ttf}
 

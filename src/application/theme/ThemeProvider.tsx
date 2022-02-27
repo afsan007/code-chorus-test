@@ -1,5 +1,3 @@
-import '$application/theme/fonts';
-
 import {
   StyleSheetManager as SCStyleSheetManager,
   ThemeProvider as SCThemeProvider,
