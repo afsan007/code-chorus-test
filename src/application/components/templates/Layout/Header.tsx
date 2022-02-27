@@ -1,70 +1,13 @@
 import { createRef } from 'react';
 import Link from 'next/link';
-import { Button, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import styled, { useTheme } from 'styled-components';
 import LogoSVG from '$application/assets/icons/logo.svg';
 import WaffleSVG from '$application/assets/icons/waffle.svg';
 import { useAtom } from 'jotai';
 import { showMenuAtom } from '../store';
-import PocketSVG from '$application/assets/icons/pocket.svg';
-import PaperSVG from '$application/assets/icons/paper.svg';
 import { useClickOutside } from '$utils/useClickOutSide';
-
-const WhitePaperButton = styled((props) => (
-  <Button {...props} variant="outlined" startIcon={<PaperSVG />} />
-))`
-  color: #37dbf3;
-  border: 1px solid #37dbf3;
-  &:hover {
-    border: 1px solid #37dbf3;
-  }
-  text-transform: capitalize;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  margin-right: 24px;
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    margin: 20px 0;
-    width: 100%;
-    padding: 8px 14px;
-    height: 44px;
-  }
-`;
-
-const InviteButton = styled((props) => (
-  <Button {...props} variant="contained" startIcon={<PocketSVG />} />
-))`
-  background: #b53385;
-  border-radius: 6px;
-  &:hover {
-    background: #b53385;
-  }
-  font-weight: 600;
-  text-transform: capitalize;
-  font-size: 14px;
-  line-height: 20px;
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    margin: 20px 0;
-    width: 100%;
-    padding: 8px 14px;
-    height: 44px;
-  }
-`;
-
-interface MenuItem {
-  href: string;
-  label: string;
-  renderer?: (props: any) => React.ReactElement;
-}
-
-const menuItems: MenuItem[] = [
-  { href: '/', label: 'Home' },
-  { href: '/purpose', label: 'The Purpose' },
-  { href: '/ecosystem', label: 'The Ecosystem' },
-  { href: '/about', label: 'About' },
-  { href: '/whitepaper', label: 'Read Whitepaper', renderer: WhitePaperButton },
-  { href: '/invite', label: 'Request Invite', renderer: InviteButton },
-];
+import { menuItems } from './Header/menuConfig';
 
 interface HeaderProps {
   className?: string;
@@ -75,15 +18,17 @@ export const Header = ({ className }: HeaderProps) => {
   const containerRef = createRef<HTMLDivElement>();
   const [showMenu, setShowMenu] = useAtom(showMenuAtom);
   const isInLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
-  const menuHandler = () => setShowMenu(!showMenu);
+  const menuHandler = () => {
+    setShowMenu(!showMenu);
+  };
   useClickOutside(containerRef, () => setShowMenu(false));
 
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} ref={containerRef}>
       <LogoIcon />
       {!isInLargeScreen && <WaffleIcon onClick={menuHandler} />}
       {((!isInLargeScreen && showMenu) || isInLargeScreen) && (
-        <Menu ref={containerRef}>
+        <Menu>
           {menuItems.map((item, idx) => {
             const RendererCmp = item.renderer ?? Item;
             return (
