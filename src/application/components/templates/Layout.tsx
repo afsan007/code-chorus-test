@@ -1,27 +1,35 @@
-import styled from 'styled-components';
+import { useAtomValue } from 'jotai';
+import styled, { css } from 'styled-components';
 import Header from './Layout/Header';
+import { showMenuAtom } from './store';
 
-export const Layout = (props) => (
-  <Wrapper>
-    <Header />
-    {props.children}
-  </Wrapper>
-);
-
-const Wrapper = styled.div`
+export const Layout = (props) => {
+  const showMenu = useAtomValue(showMenuAtom);
+  return (
+    <Wrapper showMenu={showMenu}>
+      <Header />
+      {props.children}
+    </Wrapper>
+  );
+};
+const Wrapper = styled.div<{ showMenu: boolean }>`
   height: 100%;
   width: 1440px;
   margin: 0 auto;
   ${({ theme }) => theme.breakpoints.down('sm')} {
     width: 100%;
-    :before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 720px;
-      background-image: url('/mobileBackground.svg');
-      background-repeat: no-repeat;
-    }
+    ${({ showMenu }) =>
+      !showMenu &&
+      css`
+        :before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 720px;
+          background-image: url('/mobileBackground.svg');
+          background-repeat: no-repeat;
+        }
+      `}
   }
   ${({ theme }) => theme.breakpoints.up('sm')} {
     :after {
