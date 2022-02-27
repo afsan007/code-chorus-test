@@ -1,3 +1,3 @@
-import { Home as HomeCmp } from '$application/components/atoms/Home';
+import Home from '$application/components/atoms/Home';
 
-export default HomeCmp;
+export default Home;

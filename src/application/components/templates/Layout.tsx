@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import Header from './Layout/Header';
 
-export const Layout = (props) => {
-  return (
-    <Wrapper>
-      <Header />
-      {props.children}
-    </Wrapper>
-  );
-};
+export const Layout = (props) => (
+  <Wrapper>
+    <Header />
+    {props.children}
+  </Wrapper>
+);
 
 const Wrapper = styled.div`
   height: 100%;
