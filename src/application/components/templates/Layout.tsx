@@ -29,9 +29,9 @@ const Wrapper = styled.div`
       background-image: url('/background.svg');
       position: absolute;
       width: 65vw;
-      height: 85vh;
-      z-index: 2;
-      bottom: 1px;
+      height: 1000px;
+      z-index: -1;
+      bottom: 0;
       background-repeat: no-repeat;
     }
   }
