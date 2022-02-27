@@ -30,13 +30,11 @@ const SubText = styled.div`
   line-height: 26px;
   color: #ffffff;
   margin-top: 14px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      width: '260px',
-      textAlign: 'center',
-      marginTop: '28px',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    width: 260px;
+    text-align: center;
+    margin-top: 28px;
+  }
 `;
 
 const Text = styled.div`
@@ -46,28 +44,25 @@ const Text = styled.div`
   width: 384px;
   color: #fff;
   margin-top: 73px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '44px',
-      lineHeight: '52px',
-      textAlign: 'center',
-      width: '190px',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    font-size: 44px;
+    line-height: 52px;
+    text-align: center;
+    width: 190px;
+  }
 `;
 
 const Container = styled.div`
   padding-top: 194px;
   padding-left: 222px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      padding: 'unset',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
+
 const MsgIcon = styled(MsgSVG)`
   width: 120px;
   height: 120px;
@@ -80,9 +75,6 @@ const MessageIcon = styled(MessageSVG)`
   height: 180px;
   padding-left: 15px;
   box-sizing: content-box;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {},
-  })}
 `;
 
 export default Home;

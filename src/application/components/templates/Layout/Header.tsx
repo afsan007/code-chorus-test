@@ -17,14 +17,12 @@ const WhitePaperButton = styled((props) => <Button {...props} variant="outlined"
   font-size: 14px;
   line-height: 20px;
   margin-right: 24px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      margin: '20px 0',
-      width: '100%',
-      padding: '8px 14px',
-      height: '44px',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin: 20px 0;
+    width: 100%;
+    padding: 8px 14px;
+    height: 44px;
+  }
 `;
 
 const InviteButton = styled((props) => <Button {...props} variant="contained" />)`
@@ -37,14 +35,12 @@ const InviteButton = styled((props) => <Button {...props} variant="contained" />
   text-transform: capitalize;
   font-size: 14px;
   line-height: 20px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      margin: '20px 0',
-      width: '100%',
-      padding: '8px 14px',
-      height: '44px',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin: 20px 0;
+    width: 100%;
+    padding: 8px 14px;
+    height: 44px;
+  }
 `;
 
 interface MenuItem {
@@ -91,6 +87,7 @@ export const Header = ({ className }: HeaderProps) => {
     </Wrapper>
   );
 };
+
 const WaffleIcon = styled(WaffleSVG)`
   width: 28px;
   height: 28px;
@@ -102,14 +99,12 @@ const WaffleIcon = styled(WaffleSVG)`
 const Menu = styled.div`
   display: flex;
   align-items: center;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
-      width: '100%',
-      background: 'black',
-      boxShadow: 'inset 0px 1px 0px #4F517C',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    flex-direction: column;
+    width: 100%;
+    background: black;
+    box-shadow: inset 0px 1px 0px #4f517c;
+  }
 `;
 
 const Item = styled.div`
@@ -118,11 +113,9 @@ const Item = styled.div`
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      margin: '20px 0',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin: 20px 0;
+  }
 `;
 
 const LogoIcon = styled(LogoSVG)`
@@ -137,19 +130,17 @@ const Wrapper = styled.div`
   padding: 53px 60px 0 60px;
   width: 1200px;
   margin: 0 auto;
-  ${({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-      padding: 'unset',
-      width: 'unset',
-      minWidth: '300px',
-      height: '60px',
-      margin: '56px 16px 0 16px',
-      background: '#010214',
-      backdropFilter: 'blur(10px)',
-      borderRadius: '8px',
-      flexWrap: 'wrap',
-    },
-  })}
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: unset;
+    width: unset;
+    min-width: 300px;
+    height: 60px;
+    margin: 56px 16px 0 16px;
+    background: #010214;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    flex-wrap: wrap;
+  }
 `;
 
 export default Header;
