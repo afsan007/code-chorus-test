@@ -27,6 +27,7 @@
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest",
     "@mui/styled-engine-sc": "^5.1.0",
     "@mui/system": "^5.2.3",
+    "jotai": "^1.6.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "next": "12.1.0",

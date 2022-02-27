@@ -10,12 +10,7 @@ ${normalize}
   font-family:'Montserrat';
 }
 
-
-#__next{
-  background-color:#000;
-
-}
-html,body,#__next{
-  height:100%;
+html{
+  background:#000;
 }
 `;

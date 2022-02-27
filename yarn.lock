@@ -10493,6 +10493,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jotai@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "jotai@npm:1.6.0"
+  peerDependencies:
+    "@babel/core": "*"
+    "@babel/template": "*"
+    "@urql/core": "*"
+    immer: "*"
+    optics-ts: "*"
+    react: ">=16.8"
+    react-query: "*"
+    valtio: "*"
+    wonka: "*"
+    xstate: "*"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@babel/template":
+      optional: true
+    "@urql/core":
+      optional: true
+    immer:
+      optional: true
+    optics-ts:
+      optional: true
+    react-query:
+      optional: true
+    valtio:
+      optional: true
+    wonka:
+      optional: true
+    xstate:
+      optional: true
+  checksum: fb8ec6e283f56b063e0bf479f6b4455e843b1ef07e4bf5a25b30f4c31812f1823b6ea035a278f2a317daabc7ae55b8f44e19e23bb75647a1c912b313bc87506e
+  languageName: node
+  linkType: hard
+
 "js-string-escape@npm:^1.0.1":
   version: 1.0.1
   resolution: "js-string-escape@npm:1.0.1"
@@ -12713,6 +12750,7 @@ __metadata:
     eslint-plugin-unicorn: ^39.0.0
     fork-ts-checker-webpack-plugin: 7.2.1
     husky: ^7.0.4
+    jotai: ^1.6.0
     lint-staged: ^12.1.2
     lodash: ^4.17.21
     lodash-es: ^4.17.21

@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-
-// import Link from 'next/link';
-import LogoSVG from '$application/assets/icons/logo.svg';
 import Link from 'next/link';
-import { Button } from '@mui/material';
-import React from 'react';
-// import { useRouter } from 'next/dist/client/router';
+import { Button, useMediaQuery } from '@mui/material';
+import styled, { useTheme } from 'styled-components';
+import LogoSVG from '$application/assets/icons/logo.svg';
+import WaffleSVG from '$application/assets/icons/waffle.svg';
+import { useAtom } from 'jotai';
+import { showMenuAtom } from '../store';
 
 const WhitePaperButton = styled((props) => <Button {...props} variant="outlined" />)`
   color: #37dbf3;
@@ -18,6 +17,14 @@ const WhitePaperButton = styled((props) => <Button {...props} variant="outlined"
   font-size: 14px;
   line-height: 20px;
   margin-right: 24px;
+  ${({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px 0',
+      width: '100%',
+      padding: '8px 14px',
+      height: '44px',
+    },
+  })}
 `;
 
 const InviteButton = styled((props) => <Button {...props} variant="contained" />)`
@@ -30,6 +37,14 @@ const InviteButton = styled((props) => <Button {...props} variant="contained" />
   text-transform: capitalize;
   font-size: 14px;
   line-height: 20px;
+  ${({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px 0',
+      width: '100%',
+      padding: '8px 14px',
+      height: '44px',
+    },
+  })}
 `;
 
 interface MenuItem {
@@ -52,36 +67,62 @@ interface HeaderProps {
 }
 
 export const Header = ({ className }: HeaderProps) => {
-  // const router = useRouter();
+  const theme = useTheme();
+  const [showMenu, setShowMenu] = useAtom(showMenuAtom);
 
+  const isInLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
+  const menuHandler = () => setShowMenu(!showMenu);
   return (
     <Wrapper className={className}>
       <LogoIcon />
-      <Menu>
-        {menuItems.map((item, idx) => {
-          const RendererCmp = item.renderer ?? Item;
-          return (
-            <Link href={item.href} key={idx}>
-              <RendererCmp>{item.label}</RendererCmp>
-            </Link>
-          );
-        })}
-      </Menu>
+      {!isInLargeScreen && <WaffleIcon onClick={menuHandler} />}
+      {((!isInLargeScreen && showMenu) || isInLargeScreen) && (
+        <Menu>
+          {menuItems.map((item, idx) => {
+            const RendererCmp = item.renderer ?? Item;
+            return (
+              <Link href={item.href} key={idx}>
+                <RendererCmp>{item.label}</RendererCmp>
+              </Link>
+            );
+          })}
+        </Menu>
+      )}
     </Wrapper>
   );
 };
+const WaffleIcon = styled(WaffleSVG)`
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: 16px 20px 16px 0;
+`;
 
 const Menu = styled.div`
   display: flex;
   align-items: center;
+  ${({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      width: '100%',
+      background: 'black',
+      boxShadow: 'inset 0px 1px 0px #4F517C',
+    },
+  })}
 `;
 
 const Item = styled.div`
   color: #fff;
   margin-right: 24px;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 14px;
+  ${({ theme }) => ({
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px 0',
+    },
+  })}
 `;
 
 const LogoIcon = styled(LogoSVG)`
@@ -99,10 +140,14 @@ const Wrapper = styled.div`
   ${({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 'unset',
-      width: ' 382px',
-      background: 'red',
+      width: 'unset',
+      minWidth: '300px',
+      height: '60px',
+      margin: '56px 16px 0 16px',
+      background: '#010214',
       backdropFilter: 'blur(10px)',
       borderRadius: '8px',
+      flexWrap: 'wrap',
     },
   })}
 `;
