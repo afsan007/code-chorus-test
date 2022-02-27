@@ -1,3 +1,4 @@
+// ? NOTICE: this is a sample theme that we can use in this project
 import { ThemeOptions } from '@mui/material';
 
 export const theme: ThemeOptions = {
