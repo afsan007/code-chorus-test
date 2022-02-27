@@ -1,3 +1,4 @@
+import { createRef } from 'react';
 import Link from 'next/link';
 import { Button, useMediaQuery } from '@mui/material';
 import styled, { useTheme } from 'styled-components';
@@ -7,6 +8,7 @@ import { useAtom } from 'jotai';
 import { showMenuAtom } from '../store';
 import PocketSVG from '$application/assets/icons/pocket.svg';
 import PaperSVG from '$application/assets/icons/paper.svg';
+import { useClickOutside } from '$utils/useClickOutSide';
 
 const WhitePaperButton = styled((props) => (
   <Button {...props} variant="outlined" startIcon={<PaperSVG />} />
@@ -70,16 +72,18 @@ interface HeaderProps {
 
 export const Header = ({ className }: HeaderProps) => {
   const theme = useTheme();
+  const containerRef = createRef<HTMLDivElement>();
   const [showMenu, setShowMenu] = useAtom(showMenuAtom);
-
   const isInLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
   const menuHandler = () => setShowMenu(!showMenu);
+  useClickOutside(containerRef, () => setShowMenu(false));
+
   return (
     <Wrapper className={className}>
       <LogoIcon />
       {!isInLargeScreen && <WaffleIcon onClick={menuHandler} />}
       {((!isInLargeScreen && showMenu) || isInLargeScreen) && (
-        <Menu>
+        <Menu ref={containerRef}>
           {menuItems.map((item, idx) => {
             const RendererCmp = item.renderer ?? Item;
             return (
