@@ -4,7 +4,11 @@ import PaperSVG from '$application/assets/icons/paper.svg';
 import styled from 'styled-components';
 
 const WhitePaperButton = styled((props) => (
-  <Button {...props} variant="outlined" startIcon={<PaperSVG />} />
+  <Button
+    {...props}
+    variant="outlined"
+    startIcon={!props.isInLargeScreen && <PaperSVG />}
+  />
 ))`
   color: #37dbf3;
   border: 1px solid #37dbf3;
@@ -25,7 +29,11 @@ const WhitePaperButton = styled((props) => (
 `;
 
 const InviteButton = styled((props) => (
-  <Button {...props} variant="contained" startIcon={<PocketSVG />} />
+  <Button
+    {...props}
+    variant="contained"
+    startIcon={!props.isInLargeScreen && <PocketSVG />}
+  />
 ))`
   background: #b53385;
   border-radius: 6px;
@@ -47,7 +55,7 @@ const InviteButton = styled((props) => (
 interface MenuItem {
   href: string;
   label: string;
-  renderer?: (props: any) => React.ReactElement;
+  renderer?: (props: { isInLargeScreen: boolean }) => React.ReactElement;
 }
 
 export const menuItems: MenuItem[] = [

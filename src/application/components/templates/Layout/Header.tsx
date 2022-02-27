@@ -33,7 +33,7 @@ export const Header = ({ className }: HeaderProps) => {
             const RendererCmp = item.renderer ?? Item;
             return (
               <Link href={item.href} key={idx}>
-                <RendererCmp>{item.label}</RendererCmp>
+                <RendererCmp isInLargeScreen={isInLargeScreen}>{item.label}</RendererCmp>
               </Link>
             );
           })}
