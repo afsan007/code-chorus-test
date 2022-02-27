@@ -7,10 +7,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-path=.gitignore",
-    "storybook": "start-storybook -p 6006 --no-open",
-    "build-storybook": "build-storybook -o .buildStorybook",
-    "chromatic": "npx chromatic --project-token=e8cf1da5436d"
+    "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-path=.gitignore"
   },
   "lint-staged": {
     "**/*.(t|j)s?(x)": [
@@ -47,12 +44,6 @@
     "@commitlint/config-conventional": "^15.0.0",
     "@mdx-js/react": "^1.6.22",
     "@next/eslint-plugin-next": "^12.0.4",
-    "@storybook/addon-a11y": "^6.4.7",
-    "@storybook/addon-actions": "^6.4.7",
-    "@storybook/addon-docs": "^6.4.7",
-    "@storybook/addon-essentials": "^6.4.7",
-    "@storybook/addon-links": "^6.4.7",
-    "@storybook/react": "^6.4.7",
     "@svgr/webpack": "^6.1.1",
     "@types/node": "16.11.11",
     "@types/react": "17.0.37",
@@ -73,7 +64,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-storybook": "^0.5.3",
     "eslint-plugin-unicorn": "^39.0.0",
     "fork-ts-checker-webpack-plugin": "7.2.1",
     "husky": "^7.0.4",
@@ -84,7 +74,6 @@
     "prettier": "^2.5.0",
     "react-docgen-typescript": "^2.2.1",
     "react-is": "^17.0.2",
-    "storybook-addon-next-router": "^3.1.0",
     "stylis": "^4.0.10",
     "stylis-plugin-rtl": "^2.1.1",
     "tsconfig-paths-webpack-plugin": "^3.5.2",

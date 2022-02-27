@@ -34,7 +34,6 @@ module.exports = {
     'plugin:jsdoc/recommended',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
-    'plugin:storybook/recommended',
     'prettier',
   ],
   rules: {

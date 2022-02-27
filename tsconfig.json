@@ -4,7 +4,6 @@
     "src/**/*",
     "public/**/*",
     "typings/**/*",
-    ".storybook/**/*",
   ],
   "exclude": [
     "node_modules"
@@ -44,9 +43,6 @@
       "$pages/*": [
         "src/pages/*"
       ],
-      "$storybook/*": [
-        ".storybook/*"
-      ]
     }
   }
 }
