@@ -11,5 +11,9 @@ ${normalize}
 
 html{
   background:#000;
+
+   ${({ theme }) => theme.breakpoints.down('sm')} {
+     background:rgba(1, 2, 20, 0.9)
+    }
 }
 `;

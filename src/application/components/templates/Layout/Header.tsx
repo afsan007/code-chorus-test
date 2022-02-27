@@ -1,13 +1,14 @@
 import { createRef } from 'react';
 import Link from 'next/link';
 import { useMediaQuery } from '@mui/material';
-import styled, { useTheme } from 'styled-components';
+import styled, { useTheme, css } from 'styled-components';
 import LogoSVG from '$application/assets/icons/logo.svg';
 import WaffleSVG from '$application/assets/icons/waffle.svg';
 import { useAtom } from 'jotai';
 import { showMenuAtom } from '../store';
 import { useClickOutside } from '$utils/useClickOutSide';
-import { menuItems } from './Header/menuConfig';
+import { MenuItemRendererProps, menuItems } from './Header/menuConfig';
+import { useRouter } from 'next/router';
 
 interface HeaderProps {
   className?: string;
@@ -15,6 +16,7 @@ interface HeaderProps {
 
 export const Header = ({ className }: HeaderProps) => {
   const theme = useTheme();
+  const router = useRouter();
   const containerRef = createRef<HTMLDivElement>();
   const [showMenu, setShowMenu] = useAtom(showMenuAtom);
   const isInLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
@@ -33,7 +35,12 @@ export const Header = ({ className }: HeaderProps) => {
             const RendererCmp = item.renderer ?? Item;
             return (
               <Link href={item.href} key={idx}>
-                <RendererCmp isInLargeScreen={isInLargeScreen}>{item.label}</RendererCmp>
+                <RendererCmp
+                  isInLargeScreen={isInLargeScreen}
+                  selected={router.pathname === item.href}
+                >
+                  {item.label}
+                </RendererCmp>
               </Link>
             );
           })}
@@ -48,7 +55,7 @@ const WaffleIcon = styled(WaffleSVG)`
   height: 28px;
   cursor: pointer;
   box-sizing: content-box;
-  padding: 16px 20px 16px 0;
+  padding: 16px 0;
 `;
 
 const Menu = styled.div`
@@ -57,17 +64,33 @@ const Menu = styled.div`
   ${({ theme }) => theme.breakpoints.down('sm')} {
     flex-direction: column;
     width: 100%;
-    background: black;
     box-shadow: inset 0px 1px 0px #4f517c;
   }
 `;
 
-const Item = styled.div`
+const Item = styled.div<MenuItemRendererProps>`
   color: #fff;
   margin-right: 24px;
   cursor: pointer;
   font-weight: 600;
+  position: relative;
   font-size: 14px;
+  ${({ isInLargeScreen, selected }) =>
+    selected &&
+    !isInLargeScreen &&
+    css`
+      :after {
+        content: '';
+        width: 6px;
+        position: absolute;
+        height: 6px;
+        background-color: #d9339c;
+        border-radius: 100%;
+        bottom: -13px;
+        left: 50%;
+      }
+    `}
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: 20px 0;
   }
@@ -89,8 +112,8 @@ const Wrapper = styled.div`
     padding: unset;
     width: unset;
     min-width: 300px;
-    height: 60px;
     margin: 56px 16px 0 16px;
+    padding: 0 20px;
     background: #010214;
     backdrop-filter: blur(10px);
     border-radius: 8px;

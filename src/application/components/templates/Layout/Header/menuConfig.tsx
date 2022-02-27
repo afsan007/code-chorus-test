@@ -51,11 +51,14 @@ const InviteButton = styled((props) => (
     height: 44px;
   }
 `;
-
+export interface MenuItemRendererProps {
+  selected: boolean;
+  isInLargeScreen: boolean;
+}
 interface MenuItem {
   href: string;
   label: string;
-  renderer?: (props: { isInLargeScreen: boolean }) => React.ReactElement;
+  renderer?: (props: MenuItemRendererProps) => React.ReactElement;
 }
 
 export const menuItems: MenuItem[] = [
