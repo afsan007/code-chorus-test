@@ -5,8 +5,12 @@ import LogoSVG from '$application/assets/icons/logo.svg';
 import WaffleSVG from '$application/assets/icons/waffle.svg';
 import { useAtom } from 'jotai';
 import { showMenuAtom } from '../store';
+import PocketSVG from '$application/assets/icons/pocket.svg';
+import PaperSVG from '$application/assets/icons/paper.svg';
 
-const WhitePaperButton = styled((props) => <Button {...props} variant="outlined" />)`
+const WhitePaperButton = styled((props) => (
+  <Button {...props} variant="outlined" startIcon={<PaperSVG />} />
+))`
   color: #37dbf3;
   border: 1px solid #37dbf3;
   &:hover {
@@ -25,7 +29,9 @@ const WhitePaperButton = styled((props) => <Button {...props} variant="outlined"
   }
 `;
 
-const InviteButton = styled((props) => <Button {...props} variant="contained" />)`
+const InviteButton = styled((props) => (
+  <Button {...props} variant="contained" startIcon={<PocketSVG />} />
+))`
   background: #b53385;
   border-radius: 6px;
   &:hover {
