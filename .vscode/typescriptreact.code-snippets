@@ -1,30 +1,4 @@
 {
-  "Story Book": {
-    "prefix": "story",
-    "body": [
-      "import React from 'react';",
-      "import { StoryFC } from '$$application/components/StoryFC';",
-      "import { ${TM_FILENAME/[.].*/$1/}, ${TM_FILENAME/[.].*/$1/}Props } from './${TM_FILENAME/[.].*/$1/}';",
-      "",
-      "export default {",
-      "\ttitle: 'Atoms /',",
-      "\tcomponent: ${TM_FILENAME/[.].*/$1/},",
-      "};",
-      "",
-      "export const ${TM_FILENAME/[.].*/$1/}Cmp:StoryFC<${TM_FILENAME/[.].*/$1/}Props> = (args) => {",
-      "\treturn <${TM_FILENAME/[.].*/$1/} {...args} />;",
-      "};",
-      "",
-      "${TM_FILENAME/[.].*/$1/}Cmp.args = {}",
-      "",
-      "${TM_FILENAME/[.].*/$1/}Cmp.parameters = {",
-      "\tzeplinLink: '',",
-      "};",
-      "\n",
-      ""
-    ],
-    "description": "Story Book"
-  },
   "TypeScript React Function Component": {
     "prefix": "rcomp",
     "body": [

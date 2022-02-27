@@ -1,7 +1,7 @@
 {
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
-      "arcanis.vscode-zipfs",
+    "arcanis.vscode-zipfs",
     "dbaeumer.vscode-eslint",
     "andys8.jest-snippets",
     "christian-kohler.path-intellisense",
@@ -11,13 +11,11 @@
     "aaron-bond.better-comments",
     "styled-components.vscode-styled-components",
     "streetsidesoftware.code-spell-checker",
-    "GraphQL.vscode-graphql",
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [
     "stylelint.vscode-stylelint",
     "hookyqr.beautify",
-    "prisma.vscode-graphql",
     "esbenp.prettier-vscode" // we use eslint-plugin-prettier and eslint --fix to format code
   ]
 }
