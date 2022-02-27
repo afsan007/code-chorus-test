@@ -24,6 +24,7 @@ const Wrapper = styled.div<{ showMenu: boolean }>`
         :before {
           content: '';
           position: absolute;
+          top: 0;
           width: 100%;
           height: 720px;
           background-image: url('/mobileBackground.svg');
